@@ -5,8 +5,8 @@ from keras.engine.topology import Layer, InputSpec
 from keras.models import Model
 from keras.utils.vis_utils import plot_model
 from sklearn.cluster import KMeans
-import metrics
-from ConvAE import CAE
+import DCEC.metrics as metrics
+from DCEC.ConvAE import CAE
 
 
 class ClusteringLayer(Layer):
