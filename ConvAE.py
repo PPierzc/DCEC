@@ -26,7 +26,7 @@ def CAE(input_shape=(28, 28, 1), filters=[32, 64, 128, 10]):
     model.add(Conv2DTranspose(filters[0], 5, strides=2, padding='same', activation='relu', name='deconv2'))
 
     model.add(Conv2DTranspose(input_shape[2], 5, strides=2, padding='same', name='deconv1'))
-    model.summary()
+
     return model
 
 if __name__ == "__main__":
