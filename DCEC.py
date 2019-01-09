@@ -75,7 +75,9 @@ class DCEC(object):
                  input_shape,
                  filters=[32, 64, 128, 10],
                  n_clusters=10,
-                 alpha=1.0):
+                 alpha=1.0,
+		 CAE_model=None
+		 ):
 
         super(DCEC, self).__init__()
 
@@ -85,7 +87,7 @@ class DCEC(object):
         self.pretrained = False
         self.y_pred = []
 
-        self.cae = CAE(input_shape, filters)
+        self.cae = CAE_model(input_shape, filters) if CAE_model else CAE(input_shape, filters)
         hidden = self.cae.get_layer(name='embedding').output
         self.encoder = Model(inputs=self.cae.input, outputs=hidden)
 
